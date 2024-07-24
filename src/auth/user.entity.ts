@@ -1,28 +1,49 @@
-import { Column, Entity, JoinColumn, JoinTable, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+    Column,
+    CreateDateColumn,
+    Entity,
+    PrimaryGeneratedColumn,
+    UpdateDateColumn,
+} from 'typeorm';
 
 @Entity()
 export class User {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
-    @Column({ unique: true })
+    @Column()
+    name: string;
+
+    @Column()
     email: string;
 
     @Column()
     password: string;
 
     @Column()
-    name: string;
+    date_birth: Date;
 
     @Column()
-    avatar: string;
+    gender: string;
+
+    @Column()
+    phone_number: string;
+
+    @Column('bytea')
+    avatar: Buffer;
+
+    @Column()
+    avatar_url: string;
 
     @Column()
     role: number;
 
     @Column()
+    provider: string;
+
+    @CreateDateColumn()
     created_at: Date;
 
-    @Column()
+    @UpdateDateColumn()
     updated_at: Date;
 }
