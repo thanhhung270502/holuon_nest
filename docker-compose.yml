@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+    db:
+        container_name: shopping_cart_db
+        image: postgres
+        volumes:
+            - ./tmp/db:/var/lib/postgresql/data
+        ports:
+            - '5433:5432'
+        environment:
+            - POSTGRES_PASSWORD=password
+            - POSTGRES_USER=holuon
+            - POSTGRES_DB=holuon
