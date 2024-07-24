@@ -1,9 +1,7 @@
-import { Module } from '@nestjs/common';
+import { Logger, Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
-
-console.log(process.env.POSTGRES_HOST);
 
 @Module({
     imports: [
@@ -13,11 +11,11 @@ console.log(process.env.POSTGRES_HOST);
         }),
         TypeOrmModule.forRoot({
             type: 'postgres',
-            host: process.env.POSTGRES_HOST,
-            port: +process.env.POSTGRES_PORT,
-            username: process.env.POSTGRES_USERNAME,
-            password: process.env.POSTGRES_PASSWORD,
-            database: process.env.POSTGRES_DATABASE,
+            host: process.env.POSTGRES_LOCAL_HOST,
+            port: +process.env.POSTGRES_LOCAL_PORT,
+            username: process.env.POSTGRES_LOCAL_USER,
+            password: process.env.POSTGRES_LOCAL_PASSWORD,
+            database: process.env.POSTGRES_LOCAL_DB,
             autoLoadEntities: true,
             synchronize: true,
         }),
