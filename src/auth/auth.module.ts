@@ -15,10 +15,10 @@ import { JwtStrategy } from './jwt.strategy';
                 expiresIn: 3600,
             },
         }),
-        TypeOrmModule.forFeature([User])
+        TypeOrmModule.forFeature([User]),
     ],
     controllers: [AuthController],
     providers: [AuthService],
-     //exports: [JwtStrategy, PassportModule],
+    //exports: [JwtStrategy, PassportModule],
 })
 export class AuthModule {}
