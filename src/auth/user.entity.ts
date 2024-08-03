@@ -5,39 +5,42 @@ export class User {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
-    @Column()
+    @Column({ nullable: false })
     name: string;
 
-    @Column()
+    @Column({ nullable: true })
     email: string;
 
-    @Column()
+    @Column({ nullable: false })
     password: string;
 
-    @Column()
+    @Column({ nullable: true })
     date_birth: Date;
 
-    @Column()
+    @Column({ nullable: true })
     gender: string;
 
-    @Column()
+    @Column({ nullable: true })
     phone_number: string;
 
     @Column('bytea')
     avatar: Buffer;
 
-    @Column()
+    @Column({ nullable: true })
     avatar_url: string;
 
-    @Column()
+    @Column({ nullable: true })
     role: string;
 
-    @Column()
+    @Column({ nullable: true })
     provider: string;
 
-    @CreateDateColumn()
+    @Column({ nullable: true })
+    hashedRt: string;
+
+    @CreateDateColumn({ type: 'timestamptz' })
     created_at: Date;
 
-    @UpdateDateColumn()
+    @UpdateDateColumn({ type: 'timestamptz' })
     updated_at: Date;
 }
